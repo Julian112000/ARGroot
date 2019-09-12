@@ -189,11 +189,11 @@
 				var pos = _referenceCamera.ScreenToWorldPoint(mousePosScreen);
 
 				var latlongDelta = _mapManager.WorldToGeoPosition(pos);
-                Vector2d test = new Vector2d(testlanmyloc, testlonmyloc);
-
                 var location = LocationProviderFactory.Instance.DefaultLocationProvider.CurrentLocation;
-                GetUnityLocation(location.LatitudeLongitude.x, location.LatitudeLongitude.y, "OBJECT" );
-                GetUnityLocation(test.x, test.y, "MYLOCATION");
+
+                GetUnityLocation(testlanmyloc, testlonmyloc, "MYLOCATION");
+                GetUnityLocation(latlongDelta.x, latlongDelta.y, "OBJECT" );
+                SpawnOnMap.Instance.SpawnObject(0, latlongDelta);
                 Debug.Log("Latitude: " + latlongDelta.x + " Longitude: " + latlongDelta.y + " Altitude: " + getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y));
 				//_mapManager.UpdateMap(latlongDelta, _mapManager.Zoom);
 			}
@@ -359,6 +359,14 @@
             Vector3 loc = Conversions.GeoToWorldPosition(lat, lon, _mapManager.CenterMercator, _mapManager.WorldRelativeScale).ToVector3xz();
             Debug.Log(name + ": " + loc);
             return loc;
+        }
+        public Vector3 GetDistance(double myloclat, double myloclon, double objloclat, double objloclon)
+        {
+            Vector3 myloc = Conversions.GeoToWorldPosition(myloclat, myloclon, _mapManager.CenterMercator, _mapManager.WorldRelativeScale).ToVector3xz();
+            Vector3 objloc = Conversions.GeoToWorldPosition(myloclon, objloclat, _mapManager.CenterMercator, _mapManager.WorldRelativeScale).ToVector3xz();
+
+            Vector3 distance = objloc - myloc;
+            return distance;
         }
         public Vector3 GetDistanceInMeters(Vector3 myloc, Vector3 obloc)
         {

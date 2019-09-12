@@ -40,5 +40,13 @@
 				transform.localPosition = map.GeoToWorldPosition(LocationProvider.CurrentLocation.LatitudeLongitude);
 			}
 		}
-	}
+        public void Initialize()
+        {
+            if (_isInitialized)
+            {
+                var map = LocationProviderFactory.Instance.mapManager;
+                transform.localPosition = map.GeoToWorldPosition(LocationProvider.CurrentLocation.LatitudeLongitude);
+            }
+        }
+    }
 }
