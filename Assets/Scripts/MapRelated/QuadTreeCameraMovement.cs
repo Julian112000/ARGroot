@@ -193,7 +193,7 @@
 
                 GetUnityLocation(testlanmyloc, testlonmyloc, "MYLOCATION");
                 GetUnityLocation(latlongDelta.x, latlongDelta.y, "OBJECT" );
-                SpawnOnMap.Instance.SpawnObject(0, latlongDelta);
+                SpawnOnMap.Instance.SpawnObject(0, latlongDelta, getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y));
                 Debug.Log("Latitude: " + latlongDelta.x + " Longitude: " + latlongDelta.y + " Altitude: " + getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y));
 				//_mapManager.UpdateMap(latlongDelta, _mapManager.Zoom);
 			}

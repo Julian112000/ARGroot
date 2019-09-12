@@ -12,15 +12,22 @@ public class MapUnit : MonoBehaviour
     private Color normalColor;
     [SerializeField]
     private Color hoveredColor;
-
-    private float rotation;
+    //
     private bool selected;
+
+    public float rotation;
+    public double latitude;
+    public double longitude;
+    public float altitude;
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
     }
-
+    public MapUnitData GetData()
+    {
+        return data;
+    }
     //
     private void OnMouseDown()
     {
