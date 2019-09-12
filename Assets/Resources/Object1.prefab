@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 702bcaadb33092f45bba195691121cbf, type: 2}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  hoveredColor: {r: 0.3075808, g: 0.5283019, b: 0.26165894, a: 1}
+  hoveredColor: {r: 0.35924706, g: 0.55371135, b: 0.6509434, a: 1}
 --- !u!65 &3469152937044203003
 BoxCollider:
   m_ObjectHideFlags: 0
