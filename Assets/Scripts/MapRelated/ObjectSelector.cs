@@ -38,10 +38,10 @@ public class ObjectSelector : MonoBehaviour
     }
     public void SelectObject(MapUnitData data, MapUnit mapunit, float rotation)
     {
+        selectedObject = mapunit;
         if (!gameObject.activeSelf || mapunit.gameObject != selectedObject.gameObject)
         {
             gameObject.SetActive(true);
-            selectedObject = mapunit;
             idtext.text = "ID: [" + data.id.ToString() + "]";
             nametext.text = "[" + data.name + "]";
             iconimage.sprite = data.icon;

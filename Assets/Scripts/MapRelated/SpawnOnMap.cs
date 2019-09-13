@@ -17,7 +17,9 @@
 		[SerializeField]
 		float spawnScale = 100f;
 
+        [SerializeField]
 		List<GameObject> spawnedObjects;
+        [SerializeField]
         List<Vector2d> locations;
 
         void Start()
@@ -55,11 +57,14 @@
             instance.altitude = altitude;
             spawnedObjects.Add(instance.gameObject);
             locations.Add(location);
+
+            //ADD ID TO DATABASE
         }
         public void DeleteObject()
         {
-            spawnedObjects.Remove(ObjectSelector.Instance.selectedObject.gameObject);
-            Destroy(ObjectSelector.Instance.selectedObject.gameObject);
+            ObjectSelector.Instance.selectedObject.gameObject.SetActive(false);
+
+            //DELETE FROM DATABASE
         }
     }
 }
