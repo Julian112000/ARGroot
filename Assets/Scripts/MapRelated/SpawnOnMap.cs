@@ -56,5 +56,10 @@
             spawnedObjects.Add(instance.gameObject);
             locations.Add(location);
         }
-	}
+        public void DeleteObject()
+        {
+            spawnedObjects.Remove(ObjectSelector.Instance.selectedObject.gameObject);
+            Destroy(ObjectSelector.Instance.selectedObject.gameObject);
+        }
+    }
 }

@@ -8,7 +8,7 @@ public class ObjectSelector : MonoBehaviour
 {
     public static ObjectSelector Instance;
 
-    private MapUnit selectedObject;
+    public MapUnit selectedObject;
     public bool hovering;
 
     [SerializeField]
@@ -49,7 +49,10 @@ public class ObjectSelector : MonoBehaviour
         }
         else gameObject.SetActive(false);
     }
-
+    public void HidePanel()
+    {
+        gameObject.SetActive(false);
+    }
     public void RotateObject(float angle)
     {
         selectedObject.Rotate(angle);

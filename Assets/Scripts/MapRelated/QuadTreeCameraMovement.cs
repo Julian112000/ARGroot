@@ -180,10 +180,7 @@
 
 		void UseMeterConversion()
 		{
-            if (!CurrentSelectedModel.Instance.currentData)
-                return;
-
-			if (Input.GetMouseButtonUp(1))
+			if (Input.GetMouseButtonUp(1) && !CurrentSelectedModel.Instance.currentData)
 			{
 				var mousePosScreen = Input.mousePosition;
 				//assign distance of camera to ground plane to z, otherwise ScreenToWorldPoint() will always return the position of the camera
