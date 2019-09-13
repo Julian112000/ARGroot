@@ -9,4 +9,5 @@ public class MapUnitData : ScriptableObject
     public string name;
     public string desc;
     public Sprite icon;
+    public GameObject model;
 }

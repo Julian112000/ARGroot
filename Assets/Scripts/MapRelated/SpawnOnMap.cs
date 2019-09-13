@@ -17,9 +17,6 @@
 		[SerializeField]
 		float spawnScale = 100f;
 
-		[SerializeField]
-		GameObject[] objects;
-
 		List<GameObject> spawnedObjects;
         List<Vector2d> locations;
 
@@ -48,9 +45,9 @@
                 }
             }
         }
-        public void SpawnObject(int type, Vector2d location, float altitude)
+        public void SpawnObject(GameObject type, Vector2d location, float altitude)
         {
-            MapUnit instance = Instantiate(objects[type]).GetComponent<MapUnit>();
+            MapUnit instance = Instantiate(type).GetComponent<MapUnit>();
             instance.transform.localPosition = _map.GeoToWorldPosition(location, true);
             instance.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
             instance.latitude = location.x;

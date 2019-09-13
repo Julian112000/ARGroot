@@ -42,10 +42,12 @@ public class MapUnit : MonoBehaviour
     {
         if (selected) return;
         meshRenderer.material.color = hoveredColor;
+        ObjectSelector.Instance.hovering = true;
     }
     private void OnMouseExit()
     {
         if (selected) return;
         meshRenderer.material.color = normalColor;
+        ObjectSelector.Instance.hovering = false;
     }
 }

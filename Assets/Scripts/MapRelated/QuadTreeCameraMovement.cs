@@ -180,6 +180,9 @@
 
 		void UseMeterConversion()
 		{
+            if (!CurrentSelectedModel.Instance.currentData)
+                return;
+
 			if (Input.GetMouseButtonUp(1))
 			{
 				var mousePosScreen = Input.mousePosition;
@@ -193,7 +196,7 @@
 
                 GetUnityLocation(testlanmyloc, testlonmyloc, "MYLOCATION");
                 GetUnityLocation(latlongDelta.x, latlongDelta.y, "OBJECT" );
-                SpawnOnMap.Instance.SpawnObject(0, latlongDelta, getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y));
+                SpawnOnMap.Instance.SpawnObject(CurrentSelectedModel.Instance.currentData.model, latlongDelta, getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y));
                 Debug.Log("Latitude: " + latlongDelta.x + " Longitude: " + latlongDelta.y + " Altitude: " + getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y));
 				//_mapManager.UpdateMap(latlongDelta, _mapManager.Zoom);
 			}

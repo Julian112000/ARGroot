@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ObjectSelector : MonoBehaviour
 {
     public static ObjectSelector Instance;
 
     private MapUnit selectedObject;
+    public bool hovering;
 
     [SerializeField]
     private Text nametext;
     [SerializeField]
-    private Text desctext;
+    private Text idtext;
     [SerializeField]
     private Image iconimage;
     [SerializeField]
@@ -23,15 +25,25 @@ public class ObjectSelector : MonoBehaviour
         Instance = this;
         gameObject.SetActive(false);
     }
-
+    public void SelectModel(MapUnitDataToText data)
+    {
+        CurrentSelectedModel.Instance.UpdateUI(data);
+    }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !hovering && !EventSystem.current.IsPointerOverGameObject())
+        {
+            gameObject.SetActive(false);
+        }
+    }
     public void SelectObject(MapUnitData data, MapUnit mapunit, float rotation)
     {
-        if (!gameObject.activeSelf)
+        if (!gameObject.activeSelf || mapunit.gameObject != selectedObject.gameObject)
         {
             gameObject.SetActive(true);
             selectedObject = mapunit;
-            nametext.text = data.name;
-            desctext.text = data.desc;
+            idtext.text = "ID: [" + data.id.ToString() + "]";
+            nametext.text = "[" + data.name + "]";
             iconimage.sprite = data.icon;
             rotationSlider.value = rotation;
         }
