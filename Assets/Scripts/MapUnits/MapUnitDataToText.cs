@@ -11,10 +11,26 @@ public class MapUnitDataToText : MonoBehaviour
     public Text nameUI;
     public Image iconUI;
 
-    public void Update()
+    [SerializeField]
+    private bool isSearched;
+
+    private void Awake()
     {
-        idUI.text = "ID: " + model.id;
-        nameUI.text = "" + model.name;
-        iconUI.sprite = model.icon;
+        if (!isSearched)
+        {
+            idUI.text = "ID: " + model.id;
+            nameUI.text = "" + model.name;
+            iconUI.sprite = model.icon;
+        }
+    }
+    public void SetModel(MapUnitData newmodel)
+    {
+        model = newmodel;
+        nameUI.text = newmodel.name;
+        iconUI.sprite = newmodel.icon;
+    }
+    public void Selected()
+    {
+        ObjectSelector.Instance.SelectModel(this);
     }
 }
