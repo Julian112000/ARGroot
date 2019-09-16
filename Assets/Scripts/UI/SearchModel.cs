@@ -17,7 +17,7 @@ public class SearchModel : MonoBehaviour
     private string searchInput;
 
     [SerializeField]
-    private GameObject resultTab, resultPrefab, resultContent;
+    private GameObject resultPrefab, resultContent;
 
     [SerializeField]
     private List<MapUnitDataToText> results;
@@ -41,7 +41,6 @@ public class SearchModel : MonoBehaviour
         {
             if (string.IsNullOrEmpty(searchInput))
             {
-                resultTab.SetActive(false);
                 foundnames.Clear();
                 for (int j = 0; j < results.Count; j++)
                 {
@@ -61,7 +60,6 @@ public class SearchModel : MonoBehaviour
                     
                     AddResults(names[i], i);
                 }
-                resultTab.SetActive(true);
             }
             else if (!names[i].Contains(searchInput))
             {
