@@ -1128,7 +1128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 309, y: -27.599976}
+  m_AnchoredPosition: {x: 309, y: -27.600006}
   m_SizeDelta: {x: 119.7, y: -55.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &229648399
@@ -1889,7 +1889,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 365775732}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 606603554}
+        m_MethodName: Like
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &415505286
@@ -3188,6 +3199,7 @@ GameObject:
   - component: {fileID: 606603551}
   - component: {fileID: 606603553}
   - component: {fileID: 606603552}
+  - component: {fileID: 606603554}
   m_Layer: 5
   m_Name: White bar
   m_TagString: Untagged
@@ -3262,6 +3274,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606603550}
   m_CullTransparentMesh: 0
+--- !u!114 &606603554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606603550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8809bc9eae842f64eba584be3ec3ac53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savedLocationPrefab: {fileID: 2476710523903625388, guid: d8c8f4e2d9dd0de42b22f93b4f993629,
+    type: 3}
+  savedlocationContent: {fileID: 0}
+  geouserinput: {fileID: 1945619861}
+  inputfield: {fileID: 1945619859}
 --- !u!1 &612049800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4023,7 +4052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -29.8, y: -28.1}
+  m_AnchoredPosition: {x: -29.800049, y: -28.099998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819307151
@@ -10534,11 +10563,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 102.30005
       objectReference: {fileID: 0}
-    - target: {fileID: 5183524989753472724, guid: 63d75fc14a93e864db658308a625f981,
-        type: 3}
-      propertyPath: m_Name
-      value: Line
-      objectReference: {fileID: 0}
     - target: {fileID: 5183524989753472725, guid: 63d75fc14a93e864db658308a625f981,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -10609,6 +10633,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 336.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5183524989753472724, guid: 63d75fc14a93e864db658308a625f981,
+        type: 3}
+      propertyPath: m_Name
+      value: Line
+      objectReference: {fileID: 0}
     - target: {fileID: 5183524989135474633, guid: 63d75fc14a93e864db658308a625f981,
         type: 3}
       propertyPath: m_Color.a
@@ -10634,26 +10663,6 @@ PrefabInstance:
       propertyPath: m_VerticalScrollbar
       value: 
       objectReference: {fileID: 42513960}
-    - target: {fileID: 5183524988641522000, guid: 63d75fc14a93e864db658308a625f981,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5183524988641522000, guid: 63d75fc14a93e864db658308a625f981,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5183524988641522000, guid: 63d75fc14a93e864db658308a625f981,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -17.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 5183524989565704466, guid: 63d75fc14a93e864db658308a625f981,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6945090699386392456, guid: 63d75fc14a93e864db658308a625f981,
         type: 3}
       propertyPath: m_AnchorMin.y

@@ -74,7 +74,8 @@ namespace Mapbox.Examples
 				_coordinate = res.Features[0].Center;
 			}
 			Response = res;
-			OnGeocoderResponse(res);
-		}
+            OnGeocoderResponse(res);
+
+        }
 	}
 }

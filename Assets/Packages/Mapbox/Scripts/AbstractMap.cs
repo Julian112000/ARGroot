@@ -24,6 +24,8 @@ namespace Mapbox.Unity.Map
     /// </summary>
     public class AbstractMap : MonoBehaviour, IMap
     {
+        public static AbstractMap Instance;
+
         #region Private Fields
         [SerializeField] private MapOptions _options = new MapOptions();
         [SerializeField] private bool _initializeOnStart = true;
@@ -281,6 +283,7 @@ namespace Mapbox.Unity.Map
         /// <returns>The initialize.</returns>
         /// <param name="latLon">Lat lon.</param>
         /// <param name="zoom">Zoom.</param>
+        /// 
         public virtual void Initialize(Vector2d latLon, int zoom)
         {
             _initializeOnStart = false;
@@ -403,6 +406,7 @@ namespace Mapbox.Unity.Map
         #region Private/Protected Methods
         protected virtual void Awake()
         {
+            Instance = this;
             // Setup a visualizer to get a "Starter" map.
             _mapVisualizer = ScriptableObject.CreateInstance<MapVisualizer>();
         }

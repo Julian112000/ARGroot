@@ -38,7 +38,64 @@ public class DataSender : MonoBehaviour
     {
         StartCoroutine(LoadScenarios(id));
     }
+    public void OnSaveLocation(string name, double lat, double lon)
+    {
+        StartCoroutine(SaveLocation(name, lat, lon));
+    }
+    public void OnLoadLocation(int id)
+    {
+        StartCoroutine(LoadLocations(id));
+    }
+    public void OnDeleteLocation(string name)
+    {
+        StartCoroutine(DeleteLocation(name));
+    }
 
+    IEnumerator DeleteLocation(string name)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("action", "delete");
+        form.AddField("name", name);
+        WWW www = new WWW(url + "locationapi.php", form);
+        yield return www;
+        if (www.text != "error")
+        {
+            //
+        }
+    }
+    IEnumerator LoadLocations(int id)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("action", "load");
+        form.AddField("id", id);
+        WWW www = new WWW(url + "locationapi.php", form);
+        yield return www;
+        if (www.text != "error")
+        {
+            string data = www.text;
+
+            string[] values = data.Split(";"[0]);
+
+            string name = values[0];
+            double lat = double.Parse(values[1]);
+            double lon = double.Parse(values[2]);
+            SearchLocation.Instance.AddLocation(name, lat, lon);
+        }
+    }
+    IEnumerator SaveLocation(string name, double latitude, double longitude)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("action", "create");
+        form.AddField("name", name);
+        form.AddField("latitude", latitude.ToString());
+        form.AddField("longitude", longitude.ToString());
+        WWW www = new WWW(url + "locationapi.php", form);
+        yield return www;
+        if (www.text != "error")
+        {
+            //
+        }
+    }
     IEnumerator GetUnits(int sceneid, int id)
     {
         WWWForm form = new WWWForm();

@@ -88,21 +88,24 @@
 
 		void HandleMouseAndKeyBoard()
 		{
-			// zoom
-			float scrollDelta = 0.0f;
-			scrollDelta = Input.GetAxis("Mouse ScrollWheel");
-			ZoomMapUsingTouchOrMouse(scrollDelta);
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                // zoom
+                float scrollDelta = 0.0f;
+                scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+                ZoomMapUsingTouchOrMouse(scrollDelta);
 
 
-			//pan keyboard
-			float xMove = Input.GetAxis("Horizontal");
-			float zMove = Input.GetAxis("Vertical");
+                //pan keyboard
+                float xMove = Input.GetAxis("Horizontal");
+                float zMove = Input.GetAxis("Vertical");
 
-			//PanMapUsingKeyBoard(xMove, zMove);
+                //PanMapUsingKeyBoard(xMove, zMove);
 
 
-			//pan mouse
-			PanMapUsingTouchOrMouse();
+                //pan mouse
+                PanMapUsingTouchOrMouse();
+            }
 		}
 
 		void HandleTouch()
@@ -180,7 +183,7 @@
 
 		void UseMeterConversion()
 		{
-			if (Input.GetMouseButtonUp(1) && CurrentSelectedModel.Instance.currentData)
+			if (Input.GetMouseButtonUp(1) && CurrentSelectedModel.Instance.currentData && !EventSystem.current.IsPointerOverGameObject())
 			{
 				var mousePosScreen = Input.mousePosition;
 				//assign distance of camera to ground plane to z, otherwise ScreenToWorldPoint() will always return the position of the camera
