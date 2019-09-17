@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 0
   name: Fennek
   desc: No desc needed
-  icon: {fileID: 21300000, guid: 19c12566bb38b5c4886deaeb7e4e80b8, type: 3}
+  icon: {fileID: 21300000, guid: c6c2a1d33df3f9747b2a4c609dff8dad, type: 3}
   model: {fileID: 8107104441375835192, guid: 9917a2c2edd58e34790c42eda70a5db0, type: 3}

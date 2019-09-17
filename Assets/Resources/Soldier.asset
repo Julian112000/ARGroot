@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 1
   name: Soldier
   desc: No desc needed
-  icon: {fileID: 21300000, guid: 314c2e3662ce91f4286a32ff0c49d128, type: 3}
-  model: {fileID: 1158024974015050, guid: f845fd35405547d4ca0a433a01c502c4, type: 3}
+  icon: {fileID: 21300000, guid: 683b6709203b1b048845f932ca6af902, type: 3}
+  model: {fileID: 8107104441375835192, guid: 9917a2c2edd58e34790c42eda70a5db0, type: 3}

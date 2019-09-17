@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a56074f4645dc4d4d82bfada01831c59, type: 3}
-  m_Name: Fennik
+  m_Name: CV_90
   m_EditorClassIdentifier: 
-  id: 1
-  name: Fennik
+  id: 2
+  name: CV_90
   desc: No desc needed
-  icon: {fileID: 21300000, guid: 19c12566bb38b5c4886deaeb7e4e80b8, type: 3}
-  model: {fileID: 8107104441375835192, guid: 9917a2c2edd58e34790c42eda70a5db0, type: 3}
+  icon: {fileID: 21300000, guid: 52165e5baa7b22b4db1c035be92afa15, type: 3}
+  model: {fileID: 1512981436160018, guid: 810c08d90875e4d2cab1a96f8a2edba4, type: 3}
