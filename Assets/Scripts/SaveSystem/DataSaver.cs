@@ -5,10 +5,17 @@ using System;
 
 public static class DataSaver
 {
-    public static void SaveMapUnits(GameObject unit)
+    public static void SaveMapUnits(GameObject unit, string scenename, int id)
     {
         MapUnitData mapunit = new MapUnitData(unit);
-        DataSender.Instance.OnSaveMapUnits(mapunit.id, mapunit.latitude, mapunit.longitude, mapunit.altitude, mapunit.rotation);
+        DataSender.Instance.OnSaveMapUnits(scenename, id, mapunit.id, mapunit.latitude, mapunit.longitude, mapunit.altitude, mapunit.rotation);
+    }
+    public static void LoadScenarios(GameObject sceneinfo, int number)
+    {
+        for (int i = 0; i < number; i++)
+        {
+            DataSender.Instance.OnSelectScenario(i);
+        }
     }
 
     [Serializable]
