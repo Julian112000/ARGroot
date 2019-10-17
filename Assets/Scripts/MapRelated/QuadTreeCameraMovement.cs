@@ -196,8 +196,9 @@
 
                 GetUnityLocation(testlanmyloc, testlonmyloc, "MYLOCATION");
                 GetUnityLocation(latlongDelta.x, latlongDelta.y, "OBJECT" );
-                SpawnOnMap.Instance.SpawnObject(CurrentSelectedModel.Instance.currentData.model, latlongDelta, getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y), 0);
-                Debug.Log("Latitude: " + latlongDelta.x + " Longitude: " + latlongDelta.y + " Altitude: " + getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y));
+                SpawnOnMap.Instance.SpawnObject(CurrentSelectedModel.Instance.currentData.model, latlongDelta, getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y, _mapManager.Zoom), 0);
+
+                Debug.Log("Latitude: " + latlongDelta.x + " Longitude: " + latlongDelta.y + " Altitude: " + getAltitudeHeightLevel(latlongDelta.x, latlongDelta.y, _mapManager.Zoom));
 				//_mapManager.UpdateMap(latlongDelta, _mapManager.Zoom);
 			}
 
@@ -325,10 +326,9 @@
 			if (!_groundPlane.Raycast(ray, out distance)) { return Vector3.zero; }
 			return ray.GetPoint(distance);
 		}
-        float getAltitudeHeightLevel(double lat, double lon)
+        public float getAltitudeHeightLevel(double lat, double lon, float zoom)
         {
-            //get tile ID
-            UnwrappedTileId tileIDUnwrapped = TileCover.CoordinateToTileId(new Mapbox.Utils.Vector2d(lat, lon), (int)_mapManager.Zoom);
+            UnwrappedTileId tileIDUnwrapped = TileCover.CoordinateToTileId(new Mapbox.Utils.Vector2d(lat, lon), (int)zoom);
 
             //get tile
             UnityTile tile = _mapManager.MapVisualizer.GetUnityTileFromUnwrappedTileId(tileIDUnwrapped);
@@ -348,14 +348,6 @@
             float h = tile.QueryHeightData(Dx, Dy);
 
             return h;
-            //lat lon to unity units
-            //Vector3 location = Conversions.GeoToWorldPosition(lat, lon, _mapManager.CenterMercator, _mapManager.WorldRelativeScale).ToVector3xz();
-            //replace y in position
-            //location = new Vector3(location.x, h, location.z);
-
-            //var instance = Instantiate(_markerPrefab);
-            //instance.transform.position = location;
-            //instance.transform.SetParent(transform);
         }
         public Vector3 GetUnityLocation(double lat, double lon, string name)
         {

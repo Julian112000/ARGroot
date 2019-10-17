@@ -70,6 +70,7 @@ namespace Mapbox.Unity.Utilities
 		public static void MoveToGeocoordinate(this Transform t, double lat, double lng, Vector2d refPoint, float scale = 1)
 		{
 			t.position = Conversions.GeoToWorldPosition(lat, lng, refPoint, scale).ToVector3xz();
+
 		}
 
 		/// <summary>

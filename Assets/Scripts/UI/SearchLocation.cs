@@ -31,6 +31,9 @@ public class SearchLocation : MonoBehaviour
     }
     public void Like()
     {
+        if (inputfield.text == "")
+            return;
+
         SavedLocation savedlocation = Instantiate(savedLocationPrefab, savedlocationContent).GetComponent<SavedLocation>();
         savedlocation.Initialize(geouserinput.Coordinate, inputfield.text);
         DataSender.Instance.OnSaveLocation(inputfield.text, geouserinput.Coordinate.x, geouserinput.Coordinate.y);

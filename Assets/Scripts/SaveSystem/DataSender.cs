@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mapbox.Examples;
+using Mapbox.Unity;
+using System.Xml;
+using System.Net;
+using System.IO;
+using Mapbox.Json.Linq;
 
 public class DataSender : MonoBehaviour
 {
@@ -101,9 +106,10 @@ public class DataSender : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("action", "unit");
         form.AddField("sceneid", sceneid);
-        form.AddField("id", id);
+        form.AddField("order", id);
         WWW www = new WWW(url + "loadapi.php", form);
         yield return www;
+        Debug.Log(www.text);
         if (www.text != "error")
         {
             string data = www.text;
@@ -118,7 +124,6 @@ public class DataSender : MonoBehaviour
             SpawnOnMap.Instance.LoadUnit(db_id, new Mapbox.Utils.Vector2d(lat, lon), alt, rot);
         }
     }
-
     IEnumerator LoadScenario(int sceneid)
     {
         WWWForm form = new WWWForm();
@@ -161,12 +166,12 @@ public class DataSender : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("action", "create");
         form.AddField("scenename", scenename);
-        form.AddField("idcount", order);
-        form.AddField("id", id);
+        form.AddField("type", id);
         form.AddField("latitude", latitude.ToString());
         form.AddField("longitude", longitude.ToString());
         form.AddField("altitude", altitude.ToString());
         form.AddField("rotation", rotation);
+        form.AddField("idcount", order);
         WWW www = new WWW(url + "unitapi.php", form);
         yield return www;
         if (www.text != "error")

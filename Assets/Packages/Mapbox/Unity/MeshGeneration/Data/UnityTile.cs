@@ -311,7 +311,7 @@ namespace Mapbox.Unity.MeshGeneration.Data
 			{
 				var intX = (int)Mathf.Clamp(x * 256, 0, 255);
 				var intY = (int)Mathf.Clamp(y * 256, 0, 255);
-				return _heightData[intY * 256 + intX] * TileScale;
+				return _heightData[intY * 256 + intX] * 0.01f;
 			}
 
 			return 0;
